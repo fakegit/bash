@@ -4,7 +4,7 @@
 # click add new number
 # open inspect, go to network option
 # select a number and click continue
-# find the request from the network option panel, right click, choose "copy as curl"
+# find the request from the network option panel, right click, choose "copy as curl(bash)"
 # find result=$(replace it with the above copy), replace and save
 # run "bash gv.sh &"
 

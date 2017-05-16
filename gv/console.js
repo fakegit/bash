@@ -1,9 +1,9 @@
-# open firefox/chrome
-# go to http://voice.google.com
-# visit legacy google voice
-# click add new number
-# select a number
-# run this script on browser's console panel
+// open firefox/chrome
+// go to http://voice.google.com
+// visit legacy google voice
+// click add new number
+// select a number
+// run this script on browser's console panel
 
 //How much loop Time needed
 var loopTimes=5000;

@@ -8,7 +8,7 @@
 //How much loop Time needed
 var loopTimes=5000;
 //Sleep between each loop
-var sleepMicroSecond=31050;
+var sleepMicroSecond=11050;
 
  
 
@@ -16,39 +16,38 @@ var sleepMicroSecond=31050;
 var x = document.getElementsByClassName("goog-button-base-content");
 var element=x[(x.length-1)];
  
-  var dispatchMouseEvent = function(target, var_args) {
-      var e = document.createEvent("MouseEvents");
-      // If you need clientX, clientY, etc., you can call
-      // initMouseEvent instead of initEvent
-      e.initEvent.apply(e, Array.prototype.slice.call(arguments, 1));
-      target.dispatchEvent(e);
-    };
+var dispatchMouseEvent = function(target, var_args) {
+    var e = document.createEvent("MouseEvents");
+    // If you need clientX, clientY, etc., you can call
+    // initMouseEvent instead of initEvent
+    e.initEvent.apply(e, Array.prototype.slice.call(arguments, 1));
+    target.dispatchEvent(e);
+};
  
   
  /**
  main function
  **/
 function c(){
-if('Continue »'==element.innerHTML){
- // Do something after the sleep!
-	 dispatchMouseEvent(element, 'mouseover', true, true);
-    dispatchMouseEvent(element, 'mousedown', true, true);
-    dispatchMouseEvent(element, 'click', true, true);
-    dispatchMouseEvent(element, 'mouseup', true, true);
- 
-} 
+    if('Continue »'==element.innerHTML){
+    // Do something after the sleep!
+        dispatchMouseEvent(element, 'mouseover', true, true);
+        dispatchMouseEvent(element, 'mousedown', true, true);
+        dispatchMouseEvent(element, 'click', true, true);
+        dispatchMouseEvent(element, 'mouseup', true, true);
+    } 
 }
 
 var i = 1;                     //  set your counter to 1
 
 function myLoop () {           //  create a loop function
-   setTimeout(function () {    //  call a 3s setTimeout when the loop is called
-           //  your code here
-      i++;                     //  increment the counter
-      if (i < loopTimes) {            //  if the counter < 10, call the loop function
-         myLoop();             //  ..  again which will trigger another  
-		 c();		//  Main function
-      }                        //  ..  setTimeout()
+    setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+    //  your code here
+        i++;                     //  increment the counter
+        if (i < loopTimes) {            //  if the counter < 10, call the loop function
+            myLoop();             //  ..  again which will trigger another  
+            c();		//  Main function
+        }                        //  ..  setTimeout()
    }, sleepMicroSecond)
 }
 

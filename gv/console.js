@@ -8,10 +8,7 @@
 //How much loop Time needed
 var loopTimes=5000;
 //Sleep between each loop
-var sleepMicroSecond=11050;
-
- 
-
+var sleepMicroSecond=3000;
 
 var x = document.getElementsByClassName("goog-button-base-content");
 var element=x[(x.length-1)];

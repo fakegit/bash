@@ -47,7 +47,7 @@ function task() {
   }
   composeClick(btn)
     .then(() => {
-      // 在此调整点击时间间隔
+      // change sleep time here
       return sleep(500 + Math.random() * 3000);
     })
     .then(() => {

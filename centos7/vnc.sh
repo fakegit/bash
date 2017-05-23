@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo su
 yum install -y epel-release
 yum groupinstall -y xfce
 yum install -y tigervnc-server
@@ -9,15 +10,11 @@ su - ${user}
 vncserver
 cat > /home/${user}/.vnc/xstartup<<EOF
 #!/bin/sh
-unset SESSION_MANAGER
-unset DBUS_SESSION_BUS_ADDRESS
-exec /etc/X11/xinit/xinitrc
 /usr/bin/startxfce4
 EOF
 chmod +x ~/.vnc/xstartup
-sudo su
-systemctl daemon-reload
+sudo systemctl daemon-reload
 echo && stty erase '^H' && read -p "Input Display:" display
-systemctl start vncserver@:${display}.service
-systemctl enable vncserver@:${display}.service
-ln -s '/etc/systemd/system/vncserver@:${display}.service' '/etc/systemd/system/multi-user.target.wants/vncserver@:${display}.service'
+sudo systemctl start vncserver@:${display}.service
+sudo systemctl enable vncserver@:${display}.service
+sudo ln -s '/etc/systemd/system/vncserver@:${display}.service' '/etc/systemd/system/multi-user.target.wants/vncserver@:${display}.service'

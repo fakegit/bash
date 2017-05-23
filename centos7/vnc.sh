@@ -18,3 +18,5 @@ echo && stty erase '^H' && read -p "Input Display:" display
 sudo systemctl start vncserver@:${display}.service
 sudo systemctl enable vncserver@:${display}.service
 sudo ln -s '/etc/systemd/system/vncserver@:${display}.service' '/etc/systemd/system/multi-user.target.wants/vncserver@:${display}.service'
+
+sudo yum install -y firefox

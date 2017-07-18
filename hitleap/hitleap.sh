@@ -1,10 +1,10 @@
 #!/bin/sh
-apt-get update -y  # To get the latest package lists
-apt-get upgrade -y # To get the latest package lists
-apt-get install nano xorg xrdp jwm firefox chromium-browser flashplugin-installer -y
-service xrdp restart
+# apt-get update -y  # To get the latest package lists
+# apt-get upgrade -y # To get the latest package lists
+# apt-get install nano xorg xrdp jwm firefox chromium-browser flashplugin-installer -y
+# service xrdp restart
 
-wget -O "HitLeap Viewer.tar.xz" -P /root https://hitleap.com/viewer/latest?platform=Linux
+wget -O "HitLeap Viewer.tar.xz" -P /root https://hitleap.com/viewer/download?platform=Linux
 tar xpvf "/root/HitLeap Viewer.tar.xz" -C /root
 mv HitLeap-Viewer.desktop hitleap
 chmod +x hitleap

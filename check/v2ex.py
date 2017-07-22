@@ -42,3 +42,11 @@ def sign(username,passwd):
             print "fail"
     except Exception,e:
         print e
+
+
+
+if __name__=='__main__':
+    username=''
+    passwd=''
+    requests.packages.urllib3.disable_warnings()
+    sign(username,passwd)

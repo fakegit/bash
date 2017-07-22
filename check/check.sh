@@ -25,4 +25,4 @@ sed -i "s/passwd='/passwd='${v2ex_password}/g" v2ex.py
 
 #echo "0 0 * * * python hostloc.py" >> /etc/crontab
 #echo "0 0 * * * python v2ex.py" >> /etc/crontab
-#service cron restart
+#service crond restart

@@ -1,10 +1,10 @@
 #!/bin/sh
 
 if [ ! -f "hostloc.py" ]; then
-  wget https://github.com/fakegit/bash/raw/master/hostloc.py
+  wget https://github.com/fakegit/bash/raw/master/check/hostloc.py
 fi
 if [ ! -f "v2ex.py" ]; then
-  wget https://github.com/fakegit/bash/raw/master/v2ex.py
+  wget https://github.com/fakegit/bash/raw/master/check/v2ex.py
 fi
 
 echo -e "Hostloc Account Info"

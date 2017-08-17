@@ -4,11 +4,14 @@
 # apt-get install nano xorg xrdp jwm firefox chromium-browser flashplugin-installer -y
 # service xrdp restart
 
+cd ~
+mkdir te
+cd ~/te
 # kilohits
-wget -O "kilohits.zip" -P /root https://www.dropbox.com/s/akkpgc0jzck5eho/kilohits.com-viewer-linux-x64.zip?dl=1
-tar xpvf "/root/kilohits.zip" -C /root
+wget -O "kilohits.zip" https://www.dropbox.com/s/akkpgc0jzck5eho/kilohits.com-viewer-linux-x64.zip?dl=1
+unzip kilohits.zip
 rm -rf "kilohits.zip"
 
-wget -O "otohits.zip" -P /root http://www.otohits.net/dl/OtohitsApp_3107_Linux.zip
-tar xpvf "/root/otohits.zip" -C /root
+wget -O "otohits.zip" http://www.otohits.net/dl/OtohitsApp_3107_Linux.zip
+unzip otohits.zip
 rm -rf "otohits.zip"

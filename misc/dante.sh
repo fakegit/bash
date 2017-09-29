@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum -y install wget gcc openssl-devel pcre-devel zlib-devel libtool c++ pam-devel pam ||exit
+yum install -y wget gcc openssl-devel pcre-devel zlib-devel libtool c++ pam-devel pam ||exit
 
 wget http://www.inet.no/dante/files/dante-1.4.2.tar.gz && tar -xvzf dante-1.4.2.tar.gz && cd dante-1.4.2
 ./configure && make && make install
@@ -37,5 +37,21 @@ block {
 }
 EOF
 
-echo "/usr/local/sbin/sockd &" >> /etc/rc.local
-crontab -l | { cat; echo "* /2 * * * sockd restart"; } | crontab -
+#echo "/usr/local/sbin/sockd &" >> /etc/rc.local
+# crontab -l | { cat; echo "* /2 * * * sockd restart"; } | crontab -
+#echo "* /2 * * * sockd restart" >> /etc/crontab
+
+cd ~
+cat > sockd-start << EOF
+killall sockd > /dev/null 2>&1
+/usr/local/sbin/sockd -D
+EOF
+
+cat > sockd-stop << EOF
+killall sockd > /dev/null 2>&1
+EOF
+
+chmod +x sockd-start sockd-stop
+
+echo "/root/sockd-start" >> /etc/rc.local
+echo "* /2 * * * /root/sockd-start" >> /etc/crontab

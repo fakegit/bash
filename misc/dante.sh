@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum install -y wget gcc openssl-devel pcre-devel zlib-devel libtool c++ pam-devel pam ||exit
+yum install -y wget gcc openssl-devel pcre-devel zlib-devel libtool c++ pam-devel pam
 
 wget http://www.inet.no/dante/files/dante-1.4.2.tar.gz && tar -xvzf dante-1.4.2.tar.gz && cd dante-1.4.2
 ./configure && make && make install

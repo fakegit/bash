@@ -37,6 +37,6 @@ rm -rf /tmp/3proxy
 mkdir /var/log/3proxy
 
 # /usr/bin/3proxy $HOME/3proxy.cfg
-# ps ax | grep 3proxy
+# ps ax | grep 3proxy | grep -v grep
 # kill -9 pid
 

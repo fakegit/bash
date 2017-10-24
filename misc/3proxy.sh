@@ -1,5 +1,7 @@
 #!/bin/bash
 
+yum install -y make gcc
+
 # Creating temporary working directory
 mkdir /tmp/3proxy
 cd /tmp/3proxy

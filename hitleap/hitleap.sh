@@ -25,8 +25,12 @@ chmod +x HitLeap-Viewer.desktop
 
 cat > $HOME/hitleap_restart.sh << EOF #!/bin/sh
 ps -ef | grep hitleap | grep -v grep | cut -c 9-15 | xargs kill -s 9 > /dev/null 2>&1
-$hl_dir/HitLeap-Viewer.desktop > /dev/null 2>&1 &
+cd $hl_dir
+./HitLeap-Viewer.desktop > /dev/null 2>&1 &
+cd $HOME
 EOF
+
+chmod +x $HOME/hitleap_restart.sh
 
 echo "$HOME/hitleap_restart.sh" >> /etc/rc.local
 echo "* /2 * * * $HOME/hitleap_restart.sh" >> /etc/crontab

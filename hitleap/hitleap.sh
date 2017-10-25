@@ -3,6 +3,11 @@
 # apt-get upgrade -y # To get the latest package lists
 # apt-get install nano xorg xrdp jwm firefox chromium-browser flashplugin-installer -y
 # service xrdp restart
+apt-get install vim screen unzip firefox -y
+
+cd ~
+mkdir te
+cd ~/te
 
 wget -O "HitLeap Viewer.tar.xz" -P /root https://hitleap.com/viewer/download?platform=Linux
 tar xpvf "/root/HitLeap Viewer.tar.xz" -C /root

@@ -5,12 +5,13 @@
 # service xrdp restart
 apt-get install vim screen unzip firefox -y
 
-cd ~
-mkdir te
-cd ~/te
+te_dir=$HOME/te
+hl_dir=$HOME/te/Hitleap
+mkdir -p $hl_dir
+cd $hl_dir
 
-wget -O "HitLeap Viewer.tar.xz" -P /root https://hitleap.com/viewer/download?platform=Linux
-tar xpvf "/root/HitLeap Viewer.tar.xz" -C /root
+wget -O "HitLeap Viewer.tar.xz" https://hitleap.com/viewer/download?platform=Linux
+tar xpvf "HitLeap Viewer.tar.xz"
 #mv HitLeap-Viewer.desktop hitleap
 #chmod +x hitleap
 chmod +x HitLeap-Viewer.desktop
@@ -24,12 +25,14 @@ chmod +x HitLeap-Viewer.desktop
 
 cat > $HOME/hitleap_restart.sh << EOF #!/bin/sh
 ps -ef | grep hitleap | grep -v grep | cut -c 9-15 | xargs kill -s 9 > /dev/null 2>&1
-$HOME/HitLeap-Viewer.desktop > /dev/null 2>&1 &
+$hl_dir/HitLeap-Viewer.desktop > /dev/null 2>&1 &
 EOF
 
 echo "$HOME/hitleap_restart.sh" >> /etc/rc.local
 echo "* /2 * * * $HOME/hitleap_restart.sh" >> /etc/crontab
 
 #chmod +x launch-hitleap.sh
-rm -rf "HitLeap Viewer.tar.xz"
+rm -rf "$hl_dir/HitLeap Viewer.tar.xz"
+cd $HOME
+#$HOME/hitleap_restart.sh
 #end

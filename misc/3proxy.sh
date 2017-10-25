@@ -38,8 +38,14 @@ rm -rf /tmp/3proxy
 # Creating folder for logs or otherwise 3proxy won't work
 mkdir /var/log/3proxy
 
-echo "/usr/bin/3proxy $HOME/3proxy.cfg" >> /etc/rc.local
-echo "* /24 * * * /usr/bin/3proxy $HOME/3proxy.cfg" >> /etc/crontab
+cat > $HOME/3proxy_restart.sh << EOF #!/bin/sh
+ps -ef | grep 3proxy | grep -v grep | cut -c 9-15 | xargs kill -s 9 > /dev/null 2>&1
+/usr/bin/3proxy $HOME/3proxy.cfg > /dev/null 2>&1 &
+EOF
+chmod +x $HOME/3proxy_restart.sh
+
+echo "$HOME/3proxy_restart.sh" >> /etc/rc.local
+echo "* /24 * * * $HOME/3proxy_restart.sh" >> /etc/crontab
 service crond restart
 
 # /usr/bin/3proxy $HOME/3proxy.cfg

@@ -25,6 +25,7 @@ rm -rf "kilohits.zip"
 cat > $HOME/kilohits_restart.sh << EOF #!/bin/sh
 ps -ef | grep -i kilohits | grep -v grep | cut -c 9-15 | xargs kill -s 9 > /dev/null 2>&1
 $kh_dir/kilohits.com-viewer > /dev/null 2>&1 &
+#$kh_dir/kilohits.com-viewer --username --password > /dev/null 2>&1 &
 EOF
 
 chmod +x $HOME/kilohits_restart.sh
@@ -39,8 +40,8 @@ rm -rf "otohits.zip"
 # ~/te/Otohits/OtohitsApp
 
 cat > $HOME/otohits_restart.sh << EOF #!/bin/sh
-ps -ef | grep -i kilohits | grep -v grep | cut -c 9-15 | xargs kill -s 9 > /dev/null 2>&1
-$oh_dir/kilohits.com-viewer > /dev/null 2>&1 &
+ps -ef | grep -i otohits | grep -v grep | cut -c 9-15 | xargs kill -s 9 > /dev/null 2>&1
+$oh_dir/OtohitsApp > /dev/null 2>&1 &
 EOF
 
 chmod +x $HOME/otohits_restart.sh

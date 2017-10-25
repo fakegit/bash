@@ -38,6 +38,10 @@ rm -rf /tmp/3proxy
 # Creating folder for logs or otherwise 3proxy won't work
 mkdir /var/log/3proxy
 
+echo "/usr/bin/3proxy $HOME/3proxy.cfg" >> /etc/rc.local
+echo "* /24 * * * /usr/bin/3proxy $HOME/3proxy.cfg" >> /etc/crontab
+service crond restart
+
 # /usr/bin/3proxy $HOME/3proxy.cfg
 # ps ax | grep 3proxy | grep -v grep
 # kill -9 pid

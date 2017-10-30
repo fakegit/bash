@@ -29,7 +29,7 @@ Update_Shell(){
 			wget -N --no-check-certificate ${sh_url} && chmod +x fakegit.sh
 			echo -e "Tools have been updated to the newest version [ ${sh_new_ver} ] !"
 		else
-			echo && echo "	Cancel..." && echo
+			echo && echo " Cancel..." && echo
 		fi
 	else
 		echo -e "It's already the newest version[ ${sh_new_ver} ] !"
@@ -37,16 +37,16 @@ Update_Shell(){
 }
 
 Install_bbr(){
-  echo "BBR"
+	echo "BBR"
 }
 
 3proxy(){
-  echo "3proxy"
+	echo "3proxy"
 }
 
 Main(){
-  while true; do
-    echo && echo -e " Fakegit Tools ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
+  	while true; do
+		echo && echo -e " Fakegit Tools ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
   -- Fakegit | https://github.com/fakegit --
     
  ${Green_font_prefix}0.${Font_color_suffix} Check and update tools
@@ -54,26 +54,26 @@ Main(){
  ${Green_font_prefix}2.${Font_color_suffix} 3proxy
  ${Green_font_prefix}3.${Font_color_suffix} Quit
 "
-    read -p " Please enter number [0-3]:" num
-    case "$num" in
-      0)
-      Update_Shell
-      ;;
-      1)
-      Install_bbr
-      ;;
-      2)
-      3proxy
-      ;;
-      3)
-      echo "exit"
-      break
-      ;;
-      *)
-      echo "Please enter right number [0-3]"
-      ;;
-    esac
-  done
+		read -p " Please enter number [0-3]:" num
+		case "$num" in
+		0)
+		Update_Shell
+		;;
+		1)
+		Install_bbr
+		;;
+		2)
+		3proxy
+		;;
+		3)
+		echo "exit"
+		break
+		;;
+		*)
+		echo "Please enter right number [0-3]"
+		;;
+		esac
+	done
 }
 
 Main

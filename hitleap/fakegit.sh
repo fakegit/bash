@@ -18,7 +18,7 @@ Error="${Red_font_prefix}[Error]${Font_color_suffix}"
 Tip="${Green_font_prefix}[Warn]${Font_color_suffix}"
 
 Update_Shell(){
-	echo -e "Current Version [ ${sh_ver} ]，check update..."
+	echo -e "Current version [ ${sh_ver} ]，check update..."
 	sh_new_ver=$(wget --no-check-certificate -qO- ${sh_url}|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1)
 	[[ -z ${sh_new_ver} ]] && echo -e "${Error} Failed to check update !" && exit 0
 	if [[ ${sh_new_ver} != ${sh_ver} ]]; then
@@ -27,12 +27,12 @@ Update_Shell(){
 		[[ -z "${yn}" ]] && yn="y"
 		if [[ ${yn} == [Yy] ]]; then
 			wget -N --no-check-certificate ${sh_url} && chmod +x fakegit.sh
-			echo -e "Tools have been updated to the newest version [ ${sh_new_ver} ] !"
+			echo -e "Tools have been updated to the newest version [ ${sh_new_ver} ]!"
 		else
 			echo && echo " Cancel..." && echo
 		fi
 	else
-		echo -e "It's already the newest version[ ${sh_new_ver} ] !"
+		echo -e "It's already the newest version [ ${sh_new_ver} ]!"
 	fi
 }
 

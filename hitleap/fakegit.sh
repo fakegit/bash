@@ -45,7 +45,7 @@ Install_bbr(){
 }
 
 Main(){
-  while True; do
+  while true; do
     echo && echo -e " Fakegit Tools ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
       -- Fakegit | https://github.com/fakegit --
     

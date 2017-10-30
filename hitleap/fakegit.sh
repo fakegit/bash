@@ -56,22 +56,22 @@ Main(){
     echo
     read -p " Please enter number [0-7]:" num
     case "$num" in
-	    0)
-	    Update_Shell
-	    ;;
-	    1)
-	    Install_bbr
-	    ;;
-	    2)
+      0)
+      Update_Shell
+      ;;
+      1)
+      Install_bbr
+      ;;
+      2)
       3proxy
-	    ;;
-	    3)
-	    echo "exit"
+      ;;
+      3)
+      echo "exit"
       break
-	    ;;
-	    *)
-	    echo "Please enter right number [0-7]"
-	    ;;
+      ;;
+      *)
+      echo "Please enter right number [0-7]"
+      ;;
     esac
   done
 }

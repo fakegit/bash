@@ -53,8 +53,7 @@ Main(){
      ${Green_font_prefix}1.${Font_color_suffix} Install bbr
      ${Green_font_prefix}2.${Font_color_suffix} 3proxy
      ${Green_font_prefix}3.${Font_color_suffix} Quit
-    " && echo
-    echo
+    "
     read -p " Please enter number [0-7]:" num
     case "$num" in
       0)

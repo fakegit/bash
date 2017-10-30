@@ -10,7 +10,7 @@ export PATH
 #	Blog: https://github.com/fakegit
 #=================================================
 sh_ver="1.0.0"
-sh_url = "https://github.com/fakegit/bash/raw/master/hitleap/fakegit.sh"
+sh_url="https://github.com/fakegit/bash/raw/master/hitleap/fakegit.sh"
 
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
 Info="${Green_font_prefix}[Info]${Font_color_suffix}"
@@ -37,11 +37,11 @@ Update_Shell(){
 }
 
 Install_bbr(){
-
+  echo "BBR"
 }
 
 3proxy(){
-
+  echo "3proxy"
 }
 
 Main(){
@@ -53,6 +53,7 @@ Main(){
      ${Green_font_prefix}1.${Font_color_suffix} Install bbr
      ${Green_font_prefix}2.${Font_color_suffix} 3proxy
      ${Green_font_prefix}3.${Font_color_suffix} Quit
+    " && echo
     echo
     read -p " Please enter number [0-7]:" num
     case "$num" in

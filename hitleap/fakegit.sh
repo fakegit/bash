@@ -47,14 +47,14 @@ Install_bbr(){
 Main(){
   while true; do
     echo && echo -e " Fakegit Tools ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
-      -- Fakegit | https://github.com/fakegit --
+  -- Fakegit | https://github.com/fakegit --
     
-     ${Green_font_prefix}0.${Font_color_suffix} Check and update tools
-     ${Green_font_prefix}1.${Font_color_suffix} Install bbr
-     ${Green_font_prefix}2.${Font_color_suffix} 3proxy
-     ${Green_font_prefix}3.${Font_color_suffix} Quit
-    "
-    read -p " Please enter number [0-7]:" num
+ ${Green_font_prefix}0.${Font_color_suffix} Check and update tools
+ ${Green_font_prefix}1.${Font_color_suffix} Install bbr
+ ${Green_font_prefix}2.${Font_color_suffix} 3proxy
+ ${Green_font_prefix}3.${Font_color_suffix} Quit
+"
+    read -p " Please enter number [0-3]:" num
     case "$num" in
       0)
       Update_Shell
@@ -70,7 +70,7 @@ Main(){
       break
       ;;
       *)
-      echo "Please enter right number [0-7]"
+      echo "Please enter right number [0-3]"
       ;;
     esac
   done

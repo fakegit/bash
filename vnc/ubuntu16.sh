@@ -6,14 +6,16 @@ vncserver
 vncserver -kill :1
 mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
 
-cat > ~/.vnc/xstartup << EOF #!/bin/bash
+cat > ~/.vnc/xstartup << EOF
+#!/bin/bash
 xrdb $HOME/.Xresources
 startxfce4 &
 EOF
 
 sudo chmod +x ~/.vnc/xstartup
 
-cat > /etc/systemd/system/vncserver@.service << EOF [Unit]
+cat > /etc/systemd/system/vncserver@.service << EOF
+[Unit]
 Description=Start TightVNC server at startup
 After=syslog.target network.target
 

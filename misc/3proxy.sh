@@ -38,7 +38,8 @@ rm -rf /tmp/3proxy
 # Creating folder for logs or otherwise 3proxy won't work
 mkdir /var/log/3proxy
 
-cat > $HOME/3proxy_restart.sh << EOF #!/bin/sh
+cat > $HOME/3proxy_restart.sh << EOF
+#!/bin/sh
 ps -ef | grep 3proxy | grep -v grep | cut -c 9-15 | xargs kill -s 9 > /dev/null 2>&1
 /usr/bin/3proxy $HOME/3proxy.cfg > /dev/null 2>&1 &
 EOF

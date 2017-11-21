@@ -23,7 +23,8 @@ chmod +x HitLeap-Viewer.desktop
 #done
 #EOF1
 
-cat > $HOME/hitleap_restart.sh << EOF #!/bin/sh
+cat > $HOME/hitleap_restart.sh << EOF
+#!/bin/sh
 ps -ef | grep -i hitleap | grep -v grep | cut -c 9-15 | xargs kill -s 9 > /dev/null 2>&1
 cd $hl_dir
 ./HitLeap-Viewer.desktop > /dev/null 2>&1 &

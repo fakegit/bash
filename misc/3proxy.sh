@@ -40,7 +40,7 @@ mkdir /var/log/3proxy
 
 cat > $HOME/3proxy_restart.sh << EOF
 #!/bin/sh
-ps -ef | grep 3proxy | grep -v grep | cut -c 9-15 | xargs kill -s 9 > /dev/null 2>&1
+ps -ef | grep 3proxy | grep -v grep | grep -v $$ | cut -c 9-15 | xargs -r kill -s 9 > /dev/null 2>&1
 /usr/bin/3proxy $HOME/3proxy.cfg > /dev/null 2>&1 &
 EOF
 chmod +x $HOME/3proxy_restart.sh

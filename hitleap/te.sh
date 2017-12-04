@@ -31,8 +31,8 @@ EOF
 
 chmod +x $HOME/kilohits_restart.sh
 
-echo "$HOME/kilohits_restart.sh" >> /etc/rc.local
-echo "* /2 * * * $HOME/kilohits_restart.sh" >> /etc/crontab
+echo '$HOME/kilohits_restart.sh' >> /etc/rc.local
+echo '* /2 * * * $HOME/kilohits_restart.sh' >> /etc/crontab
 
 wget -O "otohits.zip" http://www.otohits.net/dl/OtohitsApp_3107_Linux.zip
 unzip otohits.zip
@@ -48,5 +48,5 @@ EOF
 
 chmod +x $HOME/otohits_restart.sh
 
-echo "$HOME/otohits_restart.sh" >> /etc/rc.local
+echo '$HOME/otohits_restart.sh' >> /etc/rc.local
 #echo "* /2 * * * $HOME/otohits_restart.sh" >> /etc/crontab

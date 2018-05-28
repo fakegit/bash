@@ -6,14 +6,14 @@ yum install -y make gcc
 mkdir /tmp/3proxy
 cd /tmp/3proxy
 
-# Downloading latest stable 3proxy 0.8.11
-wget --no-check-certificate https://github.com/z3APA3A/3proxy/archive/0.8.11.tar.gz
+# Downloading latest stable 3proxy 0.8.12
+wget --no-check-certificate https://github.com/z3APA3A/3proxy/archive/0.8.12.tar.gz
 
 # Extracting archive
-tar -xvzf 0.8.11.tar.gz
+tar -xvzf 0.8.12.tar.gz
 
 # Compiling
-cd 3proxy-0.8.11
+cd 3proxy-0.8.12
 make -f Makefile.Linux
 
 # Moving executable file to current user home directory

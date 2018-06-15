@@ -6,7 +6,7 @@ do
   if [ $? -ne 0 ]
   then
   echo "start 3proxy ..."
-  bash ~/3proxy_restart.sh
+  /usr/bin/3proxy $HOME/3proxy.cfg > /dev/null 2>&1 &
   else
   echo "3proxy is running."
   fi

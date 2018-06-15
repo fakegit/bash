@@ -2,7 +2,7 @@
 
 while [ 1 ]
 do
-  ps -ef|grep 3proxy|grep -v grep
+  ps -ef|grep 3proxy|grep -v grep|grep -v $$
   if [ $? -ne 0 ]
   then
   echo "start 3proxy ..."

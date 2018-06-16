@@ -1,6 +1,7 @@
 #!/bin/bash
 
-yum install -y make gcc
+# yum install -y make gcc
+apt-get install -y make gcc
 
 # Creating temporary working directory
 mkdir /tmp/3proxy
@@ -46,9 +47,20 @@ ps -ef | grep 3proxy | grep -v grep | grep -v $$ | cut -c 9-15 | xargs -r kill -
 EOF
 chmod +x $HOME/3proxy_restart.sh
 
-echo '$HOME/3proxy_restart.sh' >> /etc/rc.local
-echo '* /24 * * * $HOME/3proxy_restart.sh' >> /etc/crontab
-service crond restart
+cat > $HOME/3proxy_check.sh << 'EOF'
+ps -ef|grep 3proxy|grep -v grep|grep -v $$
+if [ $? -ne 0 ]
+then
+/usr/bin/3proxy $HOME/3proxy.cfg > /dev/null 2>&1 &
+fi
+EOF
+chmod +x $HOME/3proxy_check.sh
+
+echo '*/5 * * * * $HOME/3proxy_check.sh' >> /etc/crontab
+# echo '$HOME/3proxy_restart.sh' >> /etc/rc.local
+# echo '* /24 * * * $HOME/3proxy_restart.sh' >> /etc/crontab
+# service crond restart
+service cron restart
 
 # /usr/bin/3proxy $HOME/3proxy.cfg
 # ps ax | grep 3proxy | grep -v grep

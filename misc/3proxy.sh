@@ -7,14 +7,14 @@ apt-get install -y make gcc
 mkdir /tmp/3proxy
 cd /tmp/3proxy
 
-# Downloading latest stable 3proxy 0.8.12
-wget --no-check-certificate https://github.com/z3APA3A/3proxy/archive/0.8.12.tar.gz
+# Downloading latest stable 3proxy 0.8.13
+wget --no-check-certificate https://github.com/z3APA3A/3proxy/archive/0.8.13.tar.gz
 
 # Extracting archive
-tar -xvzf 0.8.12.tar.gz
+tar -xvzf 0.8.13.tar.gz
 
 # Compiling
-cd 3proxy-0.8.12
+cd 3proxy-0.8.13
 make -f Makefile.Linux
 
 # Moving executable file to current user home directory

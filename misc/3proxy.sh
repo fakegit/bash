@@ -39,7 +39,7 @@ rm -rf /tmp/3proxy
 # Creating folder for logs or otherwise 3proxy won't work
 mkdir /var/log/3proxy
 
-cat > $HOME/3proxy_restart.sh << 'EOF'
+cat > $HOME/3proxy_restart.sh << EOF
 #!/bin/sh
 ps -ef | grep "3proxy $HOME/3proxy.cfg" | grep -v grep | grep -v $$ | cut -c 9-15 | xargs -r kill -s 9 > /dev/null 2>&1
 # ps -ef | grep "3proxy $HOME/3proxy.cfg" | grep -v grep | grep -v $$ | awk '{print $2}' | xargs -r kill -9 > /dev/null 2>&1
@@ -47,7 +47,7 @@ ps -ef | grep "3proxy $HOME/3proxy.cfg" | grep -v grep | grep -v $$ | cut -c 9-1
 EOF
 chmod +x $HOME/3proxy_restart.sh
 
-cat > $HOME/3proxy_check.sh << 'EOF'
+cat > $HOME/3proxy_check.sh << EOF
 ps -ef|grep "3proxy $HOME/3proxy.cfg" |grep -v grep|grep -v $$
 if [ $? -ne 0 ]
 then

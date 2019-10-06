@@ -56,9 +56,9 @@ fi
 EOF
 chmod +x $HOME/3proxy_check.sh
 
-echo '*/5 * * * * root $HOME/3proxy_check.sh' >> /etc/crontab
-# echo '$HOME/3proxy_restart.sh' >> /etc/rc.local
-# echo '* /24 * * * $HOME/3proxy_restart.sh' >> /etc/crontab
+echo "*/5 * * * * root $HOME/3proxy_check.sh" >> /etc/crontab
+# echo "$HOME/3proxy_restart.sh" >> /etc/rc.local
+# echo "* /24 * * * $HOME/3proxy_restart.sh" >> /etc/crontab
 # service crond restart
 service cron restart
 

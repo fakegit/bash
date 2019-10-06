@@ -41,14 +41,14 @@ mkdir /var/log/3proxy
 
 cat > $HOME/3proxy_restart.sh << 'EOF'
 #!/bin/sh
-ps -ef | grep 3proxy | grep -v grep | grep -v $$ | cut -c 9-15 | xargs -r kill -s 9 > /dev/null 2>&1
-# ps -ef | grep 3proxy | grep -v grep | grep -v $$ | awk '{print $2}' | xargs -r kill -9 > /dev/null 2>&1
+ps -ef | grep "3proxy $HOME/3proxy.cfg" | grep -v grep | grep -v $$ | cut -c 9-15 | xargs -r kill -s 9 > /dev/null 2>&1
+# ps -ef | grep "3proxy $HOME/3proxy.cfg" | grep -v grep | grep -v $$ | awk '{print $2}' | xargs -r kill -9 > /dev/null 2>&1
 /usr/bin/3proxy $HOME/3proxy.cfg > /dev/null 2>&1 &
 EOF
 chmod +x $HOME/3proxy_restart.sh
 
 cat > $HOME/3proxy_check.sh << 'EOF'
-ps -ef|grep 3proxy|grep -v grep|grep -v $$
+ps -ef|grep "3proxy $HOME/3proxy.cfg" |grep -v grep|grep -v $$
 if [ $? -ne 0 ]
 then
 /usr/bin/3proxy $HOME/3proxy.cfg > /dev/null 2>&1 &
@@ -63,6 +63,6 @@ echo "*/5 * * * * root $HOME/3proxy_check.sh" >> /etc/crontab
 service cron restart
 
 # /usr/bin/3proxy $HOME/3proxy.cfg
-# ps ax | grep 3proxy | grep -v grep
+# ps ax | grep "3proxy $HOME/3proxy.cfg" | grep -v grep
 # kill -9 pid
 
